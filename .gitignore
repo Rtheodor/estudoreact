@@ -1,2 +1,19 @@
-#nodemodules
-node_modules/
+
+# dependencies
+/node_modules
+
+
+# testing
+
+
+# production
+
+
+# misc
+
+
+# If Packages have their independent repo
+# /packages
+
+# ignore log files
+
