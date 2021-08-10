@@ -1,18 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-function formatarNome(usuarios){
-    return usuarios.firsName + ' ' + usuarios.lastName + '- idade ' + usuarios.idade;
+/*function Welcome(props){
+    return <h1>Hello, {props.name}</h1>;
+}*/
+class Welcome extends React.Component{
+    render(){
+        return <h1>Hello, {this.props.name}</h1>
+    }
 }
+const element = <Welcome name="Rafao"/>;
 
-const usuarios={
-    firsName: 'Rafao',
-    lastName: 'React',
-    idade: '32'
-};
+ReactDOM.render(element ,document.getElementById('root'));
 
-const element = (<h1>Hello, {formatarNome(usuarios)}</h1>)
 
-ReactDOM.render(element ,document.getElementById('root')
-);
+
 
