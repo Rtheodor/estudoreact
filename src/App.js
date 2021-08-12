@@ -1,39 +1,35 @@
 import React from 'react';
 
-
+/*function App(){
+    function handleClick(){
+        alert('FUNFANDO');
+    }
+    return (
+        <a href="#" onClick={handleClick}> Xtudo </a>
+    )
+}*/
 
 class App extends React.Component {
-    constructor(props){
+    
+    constructor(props) {
         super(props);
-        this.state = ({date: new Date()})
-    }
+        this.state = {botao:true};
 
-    componentDidMount() {
-        this.timerID = setInterval(
-            () =>this.tick(),
-        1000
+        this.handleClick = this.handleClick.bind(this);
+    }
+    handleClick(){
+        this.setState(state=>({
+            botao: !state.botao            
+        }));
+    }
+    render(){
+        return (
+            <button onClick={this.handleClick}>
+                {this.state.botao ? 'ON' : 'OFF'}
+            </button>
         )
     }
-
-    componentWillUnmount(){
-        clearInterval(this.timerID);
-    }
-
-    tick() {
-        this.setState ({
-            date: new Date()
-        })
-    }
-
-
-    render(){
-      return(
-        <div> <h1>Hora atual</h1>
-        <h2>{this.state.date.toLocaleDateString()}</h2>
-        <h2>{this.state.date.toLocaleTimeString()}</h2>
-        </div>
-        );   
-    };
 }
+
 
 export default App;
