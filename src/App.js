@@ -3,26 +3,21 @@ import React from 'react';
 class App extends React.Component {
     render() {
         return (
-            <Greeting isLoggedIn={false} />
-        )
+            <NumberList numbers = {numbers}/>
+        );
     }
 }
 
-function Greeting(props) {
-    const isLoggedIn = props.isLoggedIn;
-    if(isLoggedIn){
-        return <UserGreeting />
-    }
-    return <GuestGreeting />
+function NumberList(props){
+    const numbers = props.numbers;
+    const listItens = numbers.map((number)=>
+        <li key={number.toString()}>{number}</li>
+    );
+    return(
+        <ul>{listItens}</ul>
+    )
 }
 
-function UserGreeting(props) {
-    return <h1>Welcome</h1>
-
-}
-
-function GuestGreeting(props){
-    return <h1>Please sign up.</h1>
-}
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 export default App;
