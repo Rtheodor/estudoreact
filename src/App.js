@@ -1,28 +1,20 @@
 import React from 'react';
 
-/*function App(){
-    function handleClick(){
-        alert('FUNFANDO');
-    }
-    return (
-        <a href="#" onClick={handleClick}> Xtudo </a>
-    )
-}*/
-
 class App extends React.Component {
-    
     constructor(props) {
         super(props);
-        this.state = {botao:true};
+        this.state = { botao: true };
 
         this.handleClick = this.handleClick.bind(this);
     }
-    handleClick(){
-        this.setState(state=>({
-            botao: !state.botao            
+
+    handleClick() {
+        this.setState(state => ({
+            botao: !state.botao
         }));
     }
-    render(){
+
+    render() {
         return (
             <button onClick={this.handleClick}>
                 {this.state.botao ? 'ON' : 'OFF'}
@@ -30,6 +22,5 @@ class App extends React.Component {
         )
     }
 }
-
 
 export default App;
