@@ -1,41 +1,29 @@
-import React from 'react';
+import React, { useState} from 'react';
 
-class App extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {nome: '', email: ''};
+function App(){
+const [name, setName] = useState("");
+const [email, setEmail] = useState("");
 
-        this.handleChange = this.handleChange.bind(this);
-        this.handleChangeEmail = this.handleChangeEmail.bind(this);
-        this.handSubmit = this.handSubmit.bind(this);
-    }
-
-    handleChange(event){
-        this.setState({nome: event.target.value});
-    }
-
-    handleChangeEmail (event){
-        this.setState({email: event.target.value});
-    }
-    
-    handSubmit(event){
-        alert('Olá,' + this.state.nome + ' seu email é ' + this.state.email);
-        event.preventDefault();
-    }
-
-    render(){
-        return (
-            <div>
-                <p>Salve {this.state.nome}, o seu email é {this.state.email}</p>
-            <form onSubmit={this.handSubmit}>
-                <label> Nome </label>
-                <input type="text" name="nome" onChange={this.handleChange} /><br />< br />
-                <label> Email </label>
-                <input type="text" name="email" onChange={this.handleChangeEmail} /><br />
-                <input type="submit" value="Enviar"/>
-            </form>
-            </div>
-        );
-    }
+const handleChange =(event)=>{
+    setName(event.target.value);
 }
+/*const handleChangeEmail =(event)=>{
+    setEmail(event.target.value);
+}*/
+
+    return(
+        <div>
+            <p>Nice!, <strong>{name}</strong> , O seu email é <strong>{email}</strong></p>
+            <form>
+                <labe> Nome: </labe>
+                <input type="text" onChange={handleChange} /> <br /><br />
+            
+                <label>E-mail</label>
+                <input type="text" onChange={event => setEmail(event.target.value)} /> <br /><br />
+            
+            </form>
+        </div>
+    )
+}
+
 export default App;
