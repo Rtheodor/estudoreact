@@ -1,28 +1,28 @@
-import React, { useState} from 'react';
+import React from 'react';
+import useForm from './useForm';
 
 function App(){
-const [name, setName] = useState("");
-const [email, setEmail] = useState("");
-
-const handleChange =(event)=>{
-    setName(event.target.value);
-}
-/*const handleChangeEmail =(event)=>{
-    setEmail(event.target.value);
-}*/
+    const [{values}, handleChange, handleSubmit] = useForm();
+   
+    const enviarUsuario=()=>{
+        alert(`${values.name}`);
+    }
 
     return(
-        <div>
-            <p>Nice!, <strong>{name}</strong> , O seu email é <strong>{email}</strong></p>
-            <form>
-                <labe> Nome: </labe>
-                <input type="text" onChange={handleChange} /> <br /><br />
-            
-                <label>E-mail</label>
-                <input type="text" onChange={event => setEmail(event.target.value)} /> <br /><br />
-            
-            </form>
-        </div>
+    <div>
+        <h1>Cadastro</h1>
+        <p>Nome: {values.name}</p>
+        <p>E-mail: {values.email}</p>
+        <form onSubmit={handleSubmit(enviarUsuario)}> 
+            <label>Nome: </label>
+            <input onChange={handleChange} type="text" name="name" placeholder="Digite o nome completo" /><br/><br/>
+
+            <label>E-mail: </label>
+            <input onChange={handleChange} type="text" name="email" placeholder="Digite o E-mail completo" /><br/><br/>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
     )
 }
 
