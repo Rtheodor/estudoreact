@@ -14,7 +14,7 @@ function App(){
         <p>Nome: {values.name}</p>
         <p>E-mail: {values.email}</p>
         <form onSubmit={handleSubmit(enviarUsuario)}> 
-            <label>Nome: </label>
+            <label className='nomeTitulo'>Nome: </label>
             <input onChange={handleChange} type="text" name="name" placeholder="Digite o nome completo" /><br/><br/>
 
             <label>E-mail: </label>
